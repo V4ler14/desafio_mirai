@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ejercicio1 JavaScript</title>
+    <script src="index.html"></script>
+    <template>
+      <div>
+        <template>
+          <div>
+            <h1>Mis Tareas</h1>
+            <!-- Aquí va el componente de lista de tareas -->
+            <task-list :tasks="tasks" />
+            <task-form @create-task="createTask" />
+          </div>
+        </template>
+        
+        <script>
+        import TaskList from '@/components/TaskList.vue'; // Importa el componente TaskList
+        import TaskForm from '@/components/TaskForm.vue'; // Importa el componente TaskForm
+        import { mapGetters, mapActions } from 'vuex'; // Importa mapGetters y mapActions de Vuex
+        
+        export default {
+          components: {
+            TaskList,
+            TaskForm,
+          },
+          computed: {
+            ...mapGetters('tasks', { // Usa mapGetters para mapear las getters del módulo 'tasks'
+              tasks: 'getTasks', // Asocia la getter 'getTasks' al nombre 'tasks'
+            }),
+          },
+          methods: {
+            ...mapActions('tasks', { // Usa mapActions para mapear las acciones del módulo 'tasks'
+              createTask: 'createTask', // Asocia la acción 'createTask' al nombre 'createTask'
+            }),
+          },
+        };
+        </script>
+        
+        </script>
+      </div>
+       
+     
+    </template>
+    
+  
+    </script>
+    </style>
+    
+  
+  <body>
+    <h1>Ejercicio2 JavaScript</h1>
+    <script src="ejercicios.js"></script>
+  </body>
+</html>
